@@ -25,6 +25,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>  
+    <?php include '../nav/headeradmin.php'; ?>
     <div class="container">
         <?php include '../nav/sidebar.php'; ?>
         <main class="content">
