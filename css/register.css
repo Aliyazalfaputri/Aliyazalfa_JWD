@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+    background-color: rgb(207, 206, 206);
+    box-shadow: 0 3px 5px 0 rgba(240, 240, 240, 0.3);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh ;
+    margin: 0;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh; 
+    width: 100vw;  
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Lebar maksimum box */
+    text-align: left;
+}
+
+.login-box h2 {
+    color: #6420AA;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.header-text{
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.sub-text{
+    font-size: 15px;
+    color: rgb(138, 138, 138);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group-inline {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Tambahkan jarak antar kolom */
+}
+
+.form-group-inline-item {
+    flex: 1;
+}
+
+.form-group-inline-item label {
+    display: block;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group-inline-item input[type="email"],
+.form-group-inline-item input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input[type="reset"] {
+    background-color: #f0f0f0; 
+    color: #6420AA; 
+    border: 1px solid #6420AA; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.form-group input[type="reset"]:hover {
+    background-color: #e0e0e0; 
+}
+
+
+.form-group input[type="submit"] {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #ff2994;
+}
+
+.form-error {
+    color: rgb(255, 62, 62);
+    text-align: center;
+    font-size: 14px;
+}
+
+.form-group a {
+    color: #6420AA;
+    text-decoration: none;
+}
+
+.form-group a:hover {
+    text-decoration: underline;
+}
