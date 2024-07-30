@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php include '../nav/header.php'; ?>
+<?php include '../nav/headeradmin.php'; ?>
 
 <link rel="stylesheet" href="../css/tambah.css">
 
