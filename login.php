@@ -8,11 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Query untuk mencari pengguna berdasarkan email
-    $sql = "SELECT kata_sandi FROM pengguna WHERE email = ?";
-    
+    // Query untuk mencari user berdasarkan email
+    $sql_user = "SELECT kata_sandi FROM pengguna WHERE email = ?";
+    $sql_admin = "SELECT password FROM admin WHERE email = ?";
+
     // Memastikan $conn adalah objek mysqli yang valid
-    if ($stmt = $conn->prepare($sql)) {
+    if ($stmt = $conn->prepare($sql_user)) {
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Memverifikasi password
             if (password_verify($password, $hashed_password)) {
-                // Redirect ke halaman admin jika login berhasil
+                // Redirect ke halaman pengguna jika login berhasil
                 header("Location: pengguna/index.php");
                 exit();
             } else {
@@ -32,15 +33,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error = "Email atau password salah. Silakan coba lagi.";
             }
         } else {
-            // Jika email tidak ditemukan
-            $error = "Email atau password salah. Silakan coba lagi.";
+            // Jika tidak ditemukan di tabel pengguna, cek tabel admin
+            $stmt->close();
+            if ($stmt = $conn->prepare($sql_admin)) {
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+                $stmt->store_result();
+
+                if ($stmt->num_rows === 1) {
+                    // Mengambil hash password dari database admin
+                    $stmt->bind_result($hashed_password);
+                    $stmt->fetch();
+
+                    // Memverifikasi password
+                    if (password_verify($password, $hashed_password)) {
+                        // Redirect ke halaman admin jika login berhasil
+                        header("Location: admin/paketwisata.php");
+                        exit();
+                    } else {
+                        // Jika password salah
+                        $error = "Email atau password salah. Silakan coba lagi.";
+                    }
+                } else {
+                    // Jika email tidak ditemukan
+                    $error = "Email atau password salah. Silakan coba lagi.";
+                }
+                $stmt->close();
+            } else {
+                // Menangani kesalahan jika prepare() gagal
+                $error = "Terjadi kesalahan dalam query database.";
+            }
         }
-        $stmt->close();
-    } else {
-        // Menangani kesalahan jika prepare() gagal
-        $error = "Terjadi kesalahan dalam query database.";
+        $conn->close();
     }
-    $conn->close();
 }
 ?>
 
@@ -49,10 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin</title>
+    <title>Form Login</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <?php include 'nav/header.php'; ?>
     <div class="login-container">
         <div class="login-box">
         <td colspan="2">

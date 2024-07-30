@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Buat Akun</title>
 </head>
 <body>
+    <?php include 'nav/header.php'; ?>
     <div class="login-container">
         <div class="login-box">
                 <td colspan="2">

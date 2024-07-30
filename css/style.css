@@ -1,0 +1,282 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; 
+}
+
+.header {
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ADD8E6; 
+    border-bottom: 1px solid #e7e7e7;
+    z-index: 900; 
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu a {
+    color: black; 
+    text-decoration: none; 
+    padding: 10px 15px; 
+    transition: color 0.3s ease-in-out; 
+}
+
+.menu a:hover {
+    color: #ff5722; 
+    text-decoration: underline; 
+}
+
+/* Reset CSS untuk menghilangkan margin dan padding bawaan browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: montserrat, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.container-header {
+    margin-left: 10px;
+}
+
+.container h2 {
+    color: #6420AA;
+    margin-top: 5px;
+}
+
+header {
+    background-color: #ffc8e4;
+    position: fixed;
+    padding: 10px 0;
+    height: 80px;
+    width: 100%;
+    box-shadow: 0px 1px 3px #ff2994;
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between; /* Distribute space between brand and nav */
+}
+
+.brand {
+    color: rgba(100, 32, 170, 0.5);
+    text-align: left;
+    margin-left: 20px; /* Add some margin to the left if needed */
+    font-family: Gilroy;
+    font-size: 25px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin-right: 20px; /* Add some margin to the right if needed */
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #ff2994;
+    text-decoration: none;
+}
+
+.dashboard-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.info-content {
+    background-color: #f4f4f4;
+}
+
+.info-content p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.info-box {
+    background-color: #FF69B4;
+    width: 30%;
+    text-align: center;
+}
+
+.info-box h3 {
+    margin-top: 5px;
+    margin-bottom: 1px;
+    color: #f4f4f4;
+}
+
+.info-box p {
+    font-size: 40px;
+    font-weight: bold;
+    color: #6420AA;
+    background-color: #ffc8e4;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.info-box a {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+.info-box a:hover {
+    text-decoration: underline;
+}
+
+/* CSS tambahan untuk memastikan konten tabel rata tengah */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 10px;
+    text-align: center; /* Nama kolom rata tengah */
+}
+
+td {
+    padding: 10px;
+    text-align: center; /* Konten tabel rata tengah */
+    vertical-align: middle;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.insert-btn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+footer {
+    font-size: 13px;
+    color: #FF69B4;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ff99cc;
+    color: #fff;
+    padding: 20px;
+    height: calc(100vh - 60px); /* Adjust according to header height */
+    position: fixed;
+    top: 80px; /* Adjust according to header height */
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ff66b2;
+}
+
+.content {
+    margin-left: 270px; /* Adjust according to sidebar width */
+    padding: 20px;
+    margin-top: 100px; /* Adjust according to header height */
+    flex: 1;
+    background-color: transparent;
+}
+
+header {
+    background-color: #ffc8e4;
+    position: fixed;
+    padding: 10px 0;
+    height: 80px;
+    width: 100%;
+    box-shadow: 0px 1px 3px #ff2994;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure horizontal distribution */
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px; /* Add padding for some spacing */
+}
+
+.brand {
+    color: rgba(100, 32, 170, 0.5);
+    font-family: Gilroy;
+    font-size: 25px;
+}
+
+.profile {
+    display: flex;
+    align-items: center; /* Center align icon and text vertically */
+}
+
+.profile a {
+    display: flex;
+    align-items: center;
+    color: #ff2994;
+    text-decoration: none;
+}
+
+.profile i {
+    font-size: 36px;
+    margin-right: 10px;
+}
+
+.profile-text strong {
+    font-size: 14px;
+}
+

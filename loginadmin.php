@@ -1,40 +1,45 @@
-//PASSWORD ADMIN : 123
-
 <?php
-include 'config.php';
+include("config.php");
 
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
+$error = '';
 
-// Memeriksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ambil nilai email dan password dari form
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-// Username dan password admin
-$username = 'admintravel';
-$password = password_hash('123', PASSWORD_DEFAULT);
+    // Query untuk mencari admin berdasarkan email
+    $sql = "SELECT password FROM admin WHERE email = ?";
 
-// Cek apakah username sudah ada
-$sql_check = "SELECT * FROM admin WHERE username = '$username'";
-$result_check = $conn->query($sql_check);
+    // Memastikan $conn adalah objek mysqli yang valid
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
 
-if ($result_check->num_rows == 0) {
-    // Query untuk memasukkan data admin ke tabel admin
-    $sql = "INSERT INTO admin (username, password) VALUES ('$username', '$password')";
+        if ($stmt->num_rows === 1) {
+            // Mengambil hash password dari database
+            $stmt->bind_result($hashed_password);
+            $stmt->fetch();
 
-    // Eksekusi query
-    if ($conn->query($sql) === TRUE) {
-        echo "Data admin berhasil dimasukkan.";
+            // Memverifikasi password
+            if (password_verify($password, $hashed_password)) {
+                // Redirect ke halaman admin jika login berhasil
+                header("Location: admin/index.php");
+                exit();
+            } else {
+                // Jika password salah
+                $error = "Email atau password salah. Silakan coba lagi.";
+            }
+        } else {
+            // Jika email tidak ditemukan
+            $error = "Email atau password salah. Silakan coba lagi.";
+        }
+        $stmt->close();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // Menangani kesalahan jika prepare() gagal
+        $error = "Terjadi kesalahan dalam query database.";
     }
+    $conn->close();
 }
-
-// Tutup koneksi
-$conn->close();
-
-// Redirect to admin/index.php
-header("Location: admin/index.php");
-exit();
 ?>
