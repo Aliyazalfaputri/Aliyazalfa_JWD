@@ -1,6 +1,7 @@
+
 body {
     font-family: Arial, sans-serif;
-    margin: 0; 
+    margin: 0;
 }
 
 .header {
@@ -15,6 +16,22 @@ body {
     border-bottom: 1px solid #e7e7e7;
     z-index: 900; 
 }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.container-header {
+    margin-left: 10px;
+}
+
+.container h2 {
+    color: #6420AA;
+    margin-top: 5px;
+}
+
 
 .logo {
     font-size: 24px;
@@ -33,7 +50,6 @@ body {
     text-decoration: underline; 
 }
 
-/* Reset CSS untuk menghilangkan margin dan padding bawaan browser */
 * {
     margin: 0;
     padding: 0;
@@ -60,12 +76,17 @@ main {
 }
 
 .container-header {
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px; /* Add padding for some spacing */
 }
 
-.container h2 {
-    color: #6420AA;
-    margin-top: 5px;
+.brand {
+    color: rgba(100, 32, 170, 0.5);
+    font-family: Gilroy;
+    font-size: 25px;
 }
 
 header {
@@ -77,118 +98,88 @@ header {
     box-shadow: 0px 1px 3px #ff2994;
     z-index: 1000;
     display: flex;
-    align-items: center; /* Ensure vertical alignment */
+    align-items: center;
+    justify-content: space-between; 
 }
 
-.header-content {
+.profile {
+    display: flex;
+    align-items: center; /* Center align icon and text vertically */
+}
+
+.profile a {
     display: flex;
     align-items: center;
-    width: 100%;
-    justify-content: space-between; /* Distribute space between brand and nav */
-}
-
-.brand {
-    color: rgba(100, 32, 170, 0.5);
-    text-align: left;
-    margin-left: 20px; /* Add some margin to the left if needed */
-    font-family: Gilroy;
-    font-size: 25px;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin-right: 20px; /* Add some margin to the right if needed */
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
     color: #ff2994;
     text-decoration: none;
 }
 
-.dashboard-info {
+.profile i {
+    font-size: 36px;
+    margin-right: 10px;
+}
+
+.profile-text {
+    margin-right: 10px; 
+}
+
+.profile-text strong {
+    font-size: 14px;
+}
+
+.logout-btn {
     display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+    align-items: center;
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 20px; 
+    padding: 5px 10px;
+    background-color: #f8d7da;
+    border-radius: 5px;
 }
 
-.info-content {
-    background-color: #f4f4f4;
+.logout-btn:hover {
+    background-color: #f5c6cb;
 }
 
-.info-content p {
-    font-size: 24px;
-    font-weight: bold;
+.tambah-btn {
+    background-image: linear-gradient(130deg, #6420AA,#a74174);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
 }
 
-.info-box {
-    background-color: #FF69B4;
-    width: 30%;
-    text-align: center;
-}
-
-.info-box h3 {
-    margin-top: 5px;
-    margin-bottom: 1px;
-    color: #f4f4f4;
-}
-
-.info-box p {
-    font-size: 40px;
-    font-weight: bold;
-    color: #6420AA;
-    background-color: #ffc8e4;
-    border-radius: 10px;
-    padding: 25px;
-}
-
-.info-box a {
+.tambah-btn a{
     color: #f4f4f4;
     text-decoration: none;
 }
 
-.info-box a:hover {
-    text-decoration: underline;
+.insert-btn:hover {
+    background-image: linear-gradient(130deg, #e2e2e2,#d8a4d7);
 }
 
-/* CSS tambahan untuk memastikan konten tabel rata tengah */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
+.mod-btn {
+    background-image: linear-gradient(130deg, #d1548f , #af3af3);
+    color: #fff;
+    border: none;
     padding: 10px;
-    text-align: center; /* Nama kolom rata tengah */
-}
-
-td {
-    padding: 10px;
-    text-align: center; /* Konten tabel rata tengah */
-    vertical-align: middle;
-}
-
-.action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.insert-btn a {
+    margin: 0 5px;
+    border-radius: 5px;
+    font-size: 16px;
     text-decoration: none;
-    color: inherit;
 }
 
-footer {
-    font-size: 13px;
-    color: #FF69B4;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
+.mod-btn a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.mod-btn:hover {
+    background-image: linear-gradient(130deg, #e2e2e2,#d8a4d7);
 }
 
 .sidebar {
@@ -225,58 +216,31 @@ footer {
 }
 
 .content {
-    margin-left: 270px; /* Adjust according to sidebar width */
+    margin-left: 270px; 
     padding: 20px;
-    margin-top: 100px; /* Adjust according to header height */
+    margin-top: 100px; 
     flex: 1;
     background-color: transparent;
 }
 
-header {
-    background-color: #ffc8e4;
-    position: fixed;
-    padding: 10px 0;
-    height: 80px;
+table {
     width: 100%;
-    box-shadow: 0px 1px 3px #ff2994;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensure horizontal distribution */
+    border-collapse: collapse;
 }
 
-.container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 20px; /* Add padding for some spacing */
+th {
+    padding: 10px;
+    text-align: center; /* Nama kolom rata tengah */
 }
 
-.brand {
-    color: rgba(100, 32, 170, 0.5);
-    font-family: Gilroy;
-    font-size: 25px;
+td {
+    padding: 10px;
+    text-align: center; /* Konten tabel rata tengah */
+    vertical-align: middle;
 }
 
-.profile {
-    display: flex;
-    align-items: center; /* Center align icon and text vertically */
-}
-
-.profile a {
-    display: flex;
-    align-items: center;
-    color: #ff2994;
-    text-decoration: none;
-}
-
-.profile i {
-    font-size: 36px;
-    margin-right: 10px;
-}
-
-.profile-text strong {
-    font-size: 14px;
+img {
+    max-width: 100px; 
+    height: auto;
 }
 

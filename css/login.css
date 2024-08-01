@@ -7,15 +7,15 @@
 html, body {
     width: 100%;
     height: 100%;
-    background-color: #f0f0f0; /* Warna abu-abu muda */
+    background-color: #f0f0f0;
 }
+
 .login-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: center;
     width: 100%;
-    padding-top: 80px; 
-    margin-top: 50px; 
+    padding-top: 80px;
     min-height: 100vh;
 }
 
@@ -27,7 +27,6 @@ html, body {
     max-width: 400px;
     width: 100%;
     text-align: center;
-    z-index: 500; /* Pastikan kotak login berada di atas konten lain */
 }
 
 .header-text {
@@ -40,7 +39,7 @@ html, body {
 .sub-text {
     font-size: 15px;
     color: rgb(138, 138, 138);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -54,16 +53,17 @@ html, body {
     margin-bottom: 5px;
 }
 
-.form-group input[type="text"],
+.form-group input[type="email"],
 .form-group input[type="password"] {
-    width: 100%;
+    width: 100%; /* Pastikan input mengisi lebar penuh kontainer */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px; /* Ukuran font yang sama */
 }
 
 .form-group input[type="submit"] {
-    background-color: #ff69b4;
+    background-color: #555a9b;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -73,5 +73,26 @@ html, body {
 }
 
 .form-group input[type="submit"]:hover {
-    background-color: #ff2994;
+    background-color: #555a9b;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.email-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: #ff69b4; /* Gaya border saat fokus */
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* Gaya bayangan saat fokus */
 }

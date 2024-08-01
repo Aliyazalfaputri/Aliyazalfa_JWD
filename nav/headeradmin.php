@@ -1,3 +1,8 @@
+<?php
+include '../config.php';
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +24,11 @@
                         <strong>Admin</strong>
                     </div>
                 </a>
+                <a href="../logout.php" class="logout-btn">Logout</a>
             </div>
         </div>
     </header>
 </body>
 
 </html>
+

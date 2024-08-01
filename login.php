@@ -81,11 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'nav/header.php'; ?>
     <div class="login-container">
         <div class="login-box">
-        <td colspan="2">
-                    <p class="header-text">Selamat Datang di Aliya Tour</p>
-                    <p class="sub-text">Login untuk Melanjutkan.</p>
-                </td>
-            <?php if(!empty($error)) { echo "<p>$error</p>"; } ?>
+            <p class="header-text">Selamat Datang di Aliya Tour</p>
+            <p class="sub-text">Login untuk Melanjutkan.</p>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -106,3 +103,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
+
+

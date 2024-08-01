@@ -1,3 +1,8 @@
+<?php
+include 'config.php';
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
