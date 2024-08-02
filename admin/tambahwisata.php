@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hari = $_POST['hari'];
     $harga = $_POST['harga'];
     $keterangan = $_POST['keterangan'];
+    $tanggal_mulai = $_POST['tanggal_mulai'];
+    $tanggal_akhir = $_POST['tanggal_akhir'];
 
     // Penanganan unggahan file gambar
     $target_dir = "../uploads/";
@@ -28,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $gambar_path = basename($_FILES["gambar"]["name"]); // Path relatif
 
             // Query untuk menyimpan data
-            $sql = "INSERT INTO paket_wisata (judul, hari, harga, keterangan, gambar) VALUES ('$judul', $hari, $harga, '$keterangan', '$gambar_path')";
+            $sql = "INSERT INTO paket_wisata (judul, hari, harga, keterangan, gambar, tanggal_mulai, tanggal_akhir) 
+                    VALUES ('$judul', $hari, $harga, '$keterangan', '$gambar_path', '$tanggal_mulai', '$tanggal_akhir')";
 
             if ($conn->query($sql) === TRUE) {
                 header("Location: paketwisata.php"); 
@@ -45,9 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();  // Menutup koneksi database
 }
 ?>
-
-
-
 
 <?php include '../nav/headeradmin.php'; ?>
 
@@ -74,6 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="harga">Harga:</label>
                 <input type="number" step="0.01" name="harga" id="harga" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggal_mulai">Tanggal Mulai:</label>
+                <input type="date" name="tanggal_mulai" id="tanggal_mulai" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggal_akhir">Tanggal Akhir:</label>
+                <input type="date" name="tanggal_akhir" id="tanggal_akhir" required>
             </div>
             <div class="form-group keterangan-group">
                 <label for="keterangan">Keterangan:</label>

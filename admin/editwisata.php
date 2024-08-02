@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hari = $_POST['hari'];
     $harga = $_POST['harga'];
     $keterangan = $_POST['keterangan'];
+    $tanggal_mulai = $_POST['tanggal_mulai'];
+    $tanggal_akhir = $_POST['tanggal_akhir'];
 
     // Penanganan unggahan file gambar
     if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
@@ -46,9 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
                 // Update database dengan nama gambar baru
                 $gambar = basename($_FILES["gambar"]["name"]);
-                $sql = "UPDATE paket_wisata SET judul = ?, hari = ?, harga = ?, keterangan = ?, gambar = ? WHERE id = ?";
+                $sql = "UPDATE paket_wisata SET judul = ?, hari = ?, harga = ?, keterangan = ?, gambar = ?, tanggal_mulai = ?, tanggal_akhir = ? WHERE id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("sidsi", $judul, $hari, $harga, $keterangan, $gambar, $id);
+                $stmt->bind_param("sidsisi", $judul, $hari, $harga, $keterangan, $gambar, $tanggal_mulai, $tanggal_akhir, $id);
+                
             } else {
                 echo "Maaf, terjadi kesalahan saat mengunggah file.";
                 $gambar = $row['gambar']; // Gunakan gambar lama jika gagal unggah
@@ -60,9 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $gambar = $row['gambar']; // Gunakan gambar lama jika tidak ada file baru yang diunggah
         // Update database tanpa mengubah gambar
-        $sql = "UPDATE paket_wisata SET judul = ?, hari = ?, harga = ?, keterangan = ? WHERE id = ?";
+        $sql = "UPDATE paket_wisata SET judul = ?, hari = ?, harga = ?, keterangan = ?, tanggal_mulai = ?, tanggal_akhir = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sidsi", $judul, $hari, $harga, $keterangan, $id);
+        $stmt->bind_param("sidsisi", $judul, $hari, $harga, $keterangan, $tanggal_mulai, $tanggal_akhir, $id);
     }
 
     if ($stmt->execute()) {
@@ -113,6 +116,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="harga">Harga:</label>
                     <input type="number" step="0.01" name="harga" id="harga" value="<?php echo htmlspecialchars($row['harga']); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal_mulai">Tanggal Awal:</label>
+                    <input type="date" name="tanggal_mulai" id="tanggal_mulai" value="<?php echo htmlspecialchars($row['tanggal_mulai']); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal_akhir">Tanggal Akhir:</label>
+                    <input type="date" name="tanggal_akhir" id="tanggal_akhir" value="<?php echo htmlspecialchars($row['tanggal_akhir']); ?>" required>
                 </div>
                 <div class="form-group keterangan-group">
                     <label for="keterangan">Keterangan:</label>

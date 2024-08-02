@@ -1,0 +1,124 @@
+body{
+    background-image: url(../img/bg1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+.full-height {
+    background: rgba(26, 26, 26, 0.548);
+    background-attachment: fixed;
+    max-height: 100vh;
+    height: 100vh;
+
+
+}
+table{
+    width: 100%;
+    padding-top: 5px;
+    
+}
+.heading-text{
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 63px;
+    margin-top: 15%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.sub-text2{
+    color: white;
+    font-size: 17px;
+    line-height: 27px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.register-btn{
+    background-color: rgba(240, 248, 255, 0.589);
+    color: #345cc4;
+}
+
+
+.edoc-logo{
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    padding-left: 20px;
+    animation: transitionIn-Y-over 0.5s;
+
+}
+
+.edoc-logo-sub{
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 12px;
+
+}
+
+
+.nav-item{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    animation: transitionIn-Y-over 0.5s;
+    margin-top : 10px;
+}
+
+.nav-item:hover{
+    color: #6394cd;
+
+}
+
+.non-style-link:link, .non-style-link:visited, .non-style-link:hover, .non-style-link:active{
+    text-decoration: none;
+    color: rgb(43, 43, 43);
+}
+
+.btn-primary{
+    background-color: var(--primarycolor) ;
+    border: 1px solid var(--primarycolor) ;
+    color: #fff ;
+    box-shadow: 0 3px 5px 0 rgba(57,108,240,0.3);
+}
+
+.btn-primary-soft{
+    background-color: #D8EBFA ;
+    /*border: 1px solid rgba(57,108,240,0.1) ;*/    color: #1969AA;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    /*box-shadow: 0 3px 5px 0 rgba(57,108,240,0.3)*/
+}
+
+
+.btn-primary-soft:hover{
+    background-color: var(--primarycolor) ;
+    /*border: 1px solid rgba(57,108,240,0.1) ;*/
+    color: #fff ;
+    box-shadow: 0 3px 5px 0 rgba(57,108,240,0.3);
+}
+
+.form-group {
+    background-color: #007BFF; 
+    margin-top : 10px;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
+
+.form-group:hover {
+    background-color: #0056b3; 
+}

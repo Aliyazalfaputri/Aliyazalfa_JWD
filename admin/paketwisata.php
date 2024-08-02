@@ -19,7 +19,7 @@ $result = $conn->query($sql);
         <?php include '../nav/sidebar.php'; ?>
         <main class="content">
             <h2>Daftar Paket Wisata</h2>
-            <button class="tambah-btn"><a href="tambahwisata.php">Tambah Data</a></button>
+            <button class="mod-btn"><a href="tambahwisata.php">Tambah Data</a></button>
             <table>
                 <thead>
                     <tr>
@@ -44,7 +44,7 @@ $result = $conn->query($sql);
                             echo "<td>" . $row["harga"] . "</td>";
                             echo "<td class='action-buttons'>";
                             echo "<button class='mod-btn'><a href='editwisata.php?id=" . $row["id"] . "'>Edit</a></button>";
-                            echo "<button class='mod-btn'><a href='hapuswisata.php?id=" . $row["id"] . "' onclick='return confirm(\"Apakah Anda yakin ingin menghapus produk ini?\")'>Hapus</a></button>";
+                            echo "<button class='mod-btn'><a href='hapuswisata.php?id=" . $row["id"] . "' onclick='return confirm(\"Apakah Anda yakin ingin menghapus paket wisata ini?\")'>Hapus</a></button>";
                             echo "</td>";
                             echo "</tr>";
                         }

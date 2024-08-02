@@ -28,7 +28,8 @@ body {
 }
 
 .add-product-form input[type="text"],
-.add-product-form input[type="number"] {
+.add-product-form input[type="number"],
+.add-product-form input[type="date"] {
     width: 100%;
     padding: 10px;
     border: 1px solid pink;

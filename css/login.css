@@ -53,7 +53,7 @@ html, body {
     margin-bottom: 5px;
 }
 
-.form-group input[type="email"],
+.form-group input[type="text"],
 .form-group input[type="password"] {
     width: 100%; /* Pastikan input mengisi lebar penuh kontainer */
     padding: 10px;
@@ -62,7 +62,8 @@ html, body {
     font-size: 16px; /* Ukuran font yang sama */
 }
 
-.form-group input[type="submit"] {
+.form-group input[type="submit"],
+.form-group input[type="button"] {
     background-color: #555a9b;
     color: #fff;
     border: none;
