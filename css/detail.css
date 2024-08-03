@@ -1,0 +1,161 @@
+/* CSS untuk detail paket wisata */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.image {
+    width: 100px; 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+.image img {
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.details h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.details table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.details table th, .details table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.details table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+.details table td {
+    color: #555;
+}
+
+.details .form-group {
+    display: flex;
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    margin-bottom: 10px;
+}
+
+.details .form-group input[type="checkbox"] {
+    margin-right: 10px; /* Jarak antara checkbox dan teks */
+}
+
+.details .form-group label {
+    margin: 0;
+    font-weight: 400;
+    color: #333;
+    text-align: left;
+}
+
+.details .form-group .checkbox-label {
+    display: flex;
+    align-items: center; 
+    margin-right: 0px;
+    font-weight: 100;
+}
+
+
+
+.details .form-group input, .details .form-group select, .details .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.details .form-group input:focus, .details .form-group select:focus, .details .form-group textarea:focus {
+    border-color: #007bff;
+}
+
+.details .btn {
+    display: block;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.details .btn:hover {
+    background-color: #0056b3;
+}
+
+.details .form-group input[type="submit"] {
+    margin-top: 10px; 
+    background-color: #555a9b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #8d91c9;
+}
+
+/* CSS untuk tampilan harga paket dan jumlah tagihan */
+.price-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.price-info h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.price-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.price-info .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.price-info .price:last-child {
+    margin-top: 10px;
+}
+
+

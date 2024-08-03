@@ -15,6 +15,7 @@ $conn->close();
     <div class="header">
         <div class="logo">Aliya Tour</div>
         <div class="menu">
+        <a href="dashboard.php">Dashboard</a>
             <a href="logout.php">Logout</a>
         </div>
     </div>

@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["jenis_pengguna"] = "p";
             $_SESSION["nama_pengguna"] = $_SESSION['pribadi']['nama_lengkap'];
 
-            header('Location: pengguna/index.php');
+            header('Location: dashboard.php');
             exit(); 
         }
     } else {
