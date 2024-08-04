@@ -104,7 +104,6 @@ table{
 
 .btn-primary-soft:hover{
     background-color: var(--primarycolor) ;
-    /*border: 1px solid rgba(57,108,240,0.1) ;*/
     color: #fff ;
     box-shadow: 0 3px 5px 0 rgba(57,108,240,0.3);
 }

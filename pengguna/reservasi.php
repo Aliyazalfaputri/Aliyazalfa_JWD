@@ -11,7 +11,6 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Proses data formulir dari POST (tombol "Simpan")
     $nama_pemesan = $_POST['nama_pemesan'];
     $nomer_telp = $_POST['nomer_telp'];
     $waktu_pelaksanaan = $_POST['waktu_pelaksanaan'];
@@ -19,43 +18,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jenis_tour = $_POST['jenis_tour'];
     $pelayanan_paket = implode(', ', $_POST['pelayanan']);
     
-    // Menghapus karakter non-numerik dari harga
     $harga_paket = preg_replace('/\D/', '', $_POST['harga_paket']);
     $jumlah_tagihan = preg_replace('/\D/', '', $_POST['jumlah_tagihan']);
 
-    // Menyiapkan query untuk menyimpan data
     $query = "INSERT INTO reservasi (nama_pemesan, nomor_tel_hp, waktu_pelaksanaan, jumlah_peserta, jenis_tour, pelayanan_paket, harga_paket, jumlah_tagihan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    // Menggunakan prepared statement untuk mencegah SQL injection
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ssssssss', $nama_pemesan, $nomer_telp, $waktu_pelaksanaan, $jumlah_peserta, $jenis_tour, $pelayanan_paket, $harga_paket, $jumlah_tagihan);
 
-    // Menjalankan query
     if ($stmt->execute()) {
-        // Mengarahkan ke dashboard setelah data berhasil disimpan
         header("Location: dashboard.php");
         exit();
     } else {
         echo "<p>Error: " . $stmt->error . "</p>";
     }
 
-    // Menutup koneksi
+
     $stmt->close();
     $conn->close(); // Tutup koneksi database
-} else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Menampilkan data review dari GET (tombol "Review Pesanan")
+} 
+
+else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $nama_pemesan = isset($_GET['nama_pemesan']) ? htmlspecialchars($_GET['nama_pemesan']) : '';
     $nomer_telp = isset($_GET['nomer_telp']) ? htmlspecialchars($_GET['nomer_telp']) : '';
     $waktu_pelaksanaan = isset($_GET['waktu_pelaksanaan']) ? htmlspecialchars($_GET['waktu_pelaksanaan']) : '';
     $jumlah_peserta = isset($_GET['jumlah_peserta']) ? intval($_GET['jumlah_peserta']) : 0;
     
-    // Menyaring dan memeriksa apakah pelayanan ada di query string
+
     $pelayanan = isset($_GET['pelayanan']) ? (is_array($_GET['pelayanan']) ? $_GET['pelayanan'] : explode(',', $_GET['pelayanan'])) : [];
     
     $harga_paket = isset($_GET['harga_paket']) ? htmlspecialchars($_GET['harga_paket']) : '';
     $jumlah_tagihan = isset($_GET['jumlah_tagihan']) ? htmlspecialchars($_GET['jumlah_tagihan']) : '';
 
-    // Menyatukan pelayanan dalam format string
+
     $pelayanan_paket = implode(', ', $pelayanan);
     $jenis_tour = isset($_GET['jenis_tour']) ? htmlspecialchars($_GET['jenis_tour']) : '';
 

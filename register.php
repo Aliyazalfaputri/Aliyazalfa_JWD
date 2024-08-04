@@ -4,7 +4,6 @@ session_start();
 $_SESSION["pengguna"] = "";
 $_SESSION["jenis_pengguna"] = "";
 
-// Atur zona waktu baru
 date_default_timezone_set('Asia/Jakarta');
 $tanggal = date('Y-m-d');
 

@@ -24,7 +24,6 @@ include '../nav/header1.php';
     <div class="container">
         <div class="cards">
             <?php
-            // Menampilkan data dari database
             while($row = mysqli_fetch_assoc($result)) {
                 ?>
                 <div class="card">

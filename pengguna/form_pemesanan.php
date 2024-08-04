@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     $jenis_tour = 'Unknown'; 
 }
 
-// Mengambil data dari URL
+
 $jumlah_orang = isset($_GET['jumlah_orang']) ? intval($_GET['jumlah_orang']) : 0;
 $harga_paket_per_orang = isset($_GET['harga_paket_per_orang']) ? intval($_GET['harga_paket_per_orang']) : 0;
 $total_harga = isset($_GET['total_harga']) ? intval($_GET['total_harga']) : 0;
@@ -84,12 +84,11 @@ $tanggal_perjalanan = $tanggal_mulai . ' - ' . $tanggal_akhir;
         function reviewPesanan() {
             var form = document.getElementById('pemesananForm');
             form.action = 'reservasi.php';
-            form.method = 'get'; // Use GET for review to just show data without saving
+            form.method = 'get'; 
             form.submit();
         }
 
         function cancelForm() {
-            // Redirect to dashboard.php
             window.location.href = 'dashboard.php';
         }
     </script>

@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tanggal_mulai = $_POST['tanggal_mulai'];
     $tanggal_akhir = $_POST['tanggal_akhir'];
 
-    // Penanganan unggahan file gambar
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["gambar"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -26,10 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $allowed_types = array('jpg', 'jpeg', 'png');
     if (in_array($imageFileType, $allowed_types)) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-            // Menyimpan data ke database termasuk path gambar
-            $gambar_path = basename($_FILES["gambar"]["name"]); // Path relatif
 
-            // Query untuk menyimpan data
+            $gambar_path = basename($_FILES["gambar"]["name"]); 
+
             $sql = "INSERT INTO paket_wisata (judul, hari, harga, keterangan, gambar, tanggal_mulai, tanggal_akhir) 
                     VALUES ('$judul', $hari, $harga, '$keterangan', '$gambar_path', '$tanggal_mulai', '$tanggal_akhir')";
 

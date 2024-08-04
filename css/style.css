@@ -80,7 +80,7 @@ main {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 20px; /* Add padding for some spacing */
+    padding: 0 20px; 
 }
 
 .brand {
@@ -104,7 +104,7 @@ header {
 
 .profile {
     display: flex;
-    align-items: center; /* Center align icon and text vertically */
+    align-items: center; 
 }
 
 .profile a {
@@ -172,9 +172,9 @@ header {
     background-color: #ff99cc;
     color: #fff;
     padding: 20px;
-    height: calc(100vh - 60px); /* Adjust according to header height */
+    height: calc(100vh - 60px); 
     position: fixed;
-    top: 80px; /* Adjust according to header height */
+    top: 80px; 
     left: 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -215,12 +215,12 @@ table {
 
 th {
     padding: 10px;
-    text-align: center; /* Nama kolom rata tengah */
+    text-align: center; 
 }
 
 td {
     padding: 10px;
-    text-align: center; /* Konten tabel rata tengah */
+    text-align: center;
     vertical-align: middle;
 }
 

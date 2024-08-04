@@ -1,4 +1,3 @@
-/* CSS untuk detail paket wisata */
 .container {
     max-width: 1200px;
     margin: auto;
@@ -57,12 +56,12 @@
 
 .details .form-group {
     display: flex;
-    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    align-items: center; 
     margin-bottom: 10px;
 }
 
 .details .form-group input[type="checkbox"] {
-    margin-right: 10px; /* Jarak antara checkbox dan teks */
+    margin-right: 10px; 
 }
 
 .details .form-group label {
@@ -126,7 +125,6 @@
     background-color: #8d91c9;
 }
 
-/* CSS untuk tampilan harga paket dan jumlah tagihan */
 .price-info {
     margin-top: 20px;
     padding: 15px;

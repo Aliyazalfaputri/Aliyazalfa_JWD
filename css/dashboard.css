@@ -27,7 +27,7 @@
 
 .card-content {
     padding: 15px;
-    flex: 1; /* Pastikan konten kartu mengisi ruang yang tersedia */
+    flex: 1; 
 }
 
 .card h2 {

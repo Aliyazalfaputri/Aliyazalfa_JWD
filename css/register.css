@@ -33,7 +33,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px; /* Lebar maksimum box */
+    max-width: 600px; 
     text-align: left;
     z-index: 500;
 }
@@ -85,7 +85,7 @@ body {
 .form-group-inline {
     display: flex;
     justify-content: space-between;
-    gap: 10px; /* Tambahkan jarak antar kolom */
+    gap: 10px; 
 }
 
 .form-group-inline-item {

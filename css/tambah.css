@@ -65,7 +65,7 @@ body {
     box-sizing: border-box;
     height: 200px; 
     line-height: 1.5; 
-    resize: vertical; /* Mengizinkan pengguna untuk mengubah tinggi */
+    resize: vertical; 
     background-color: white; 
     font-family: Arial, sans-serif;
     font-size: 14px;

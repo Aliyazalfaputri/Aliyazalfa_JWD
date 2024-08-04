@@ -21,10 +21,8 @@ if (isset($_GET['id'])) {
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        // Ambil tanggal mulai dan akhir
         $tanggal_mulai = new DateTime($row['tanggal_mulai']);
         $tanggal_akhir = new DateTime($row['tanggal_akhir']);
-        // Format tanggal dalam bentuk "1 Juni 2024"
         $tanggal_mulai_formatted = $tanggal_mulai->format('j M Y');
         $tanggal_akhir_formatted = $tanggal_akhir->format('j M Y');
         $durasi = $row['hari'];
@@ -35,7 +33,6 @@ if (isset($_GET['id'])) {
     die("ID tidak diberikan.");
 }
 
-// Memproses formulir jika disubmit
 $message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jumlah_orang = intval($_POST['jumlah_orang']);
@@ -57,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $harga_paket += 500000;
         }
         $harga_per_orang = $row['harga'] * $jumlah_orang;
-        // Hitung harga paket perjalanan per orang
         $harga_paket_per_orang = $harga_paket;
 
         // Hitung total harga

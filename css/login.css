@@ -55,11 +55,11 @@ html, body {
 
 .form-group input[type="text"],
 .form-group input[type="password"] {
-    width: 100%; /* Pastikan input mengisi lebar penuh kontainer */
+    width: 100%; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px; /* Ukuran font yang sama */
+    font-size: 16px; 
 }
 
 .form-group input[type="submit"],
@@ -94,6 +94,6 @@ html, body {
 
 .email-input:focus {
     outline: none;
-    border-color: #ff69b4; /* Gaya border saat fokus */
-    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* Gaya bayangan saat fokus */
+    border-color: #ff69b4; 
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); 
 }
