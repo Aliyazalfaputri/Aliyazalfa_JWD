@@ -18,6 +18,6 @@ $conn->close();
     <ul>
         <li><a href="paketwisata.php"><i class="fas fa-tachometer-alt"></i> Kelola Paket Wisata</a></li>
         <li><a href="bukutamu.php"><i class="fas fa-box"></i>  Kelola Buku Tamu</a></li>
-        <li><a href="penjualan.php"><i class="fas fa-shopping-cart"></i> Kelola Reservasi</a></li>
+        <li><a href="kelolareservasi.php"><i class="fas fa-shopping-cart"></i> Kelola Reservasi</a></li>
     </ul>
 </div>

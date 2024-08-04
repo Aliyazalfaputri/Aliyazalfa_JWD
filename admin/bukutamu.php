@@ -46,7 +46,6 @@ $conn->close();
                 <tbody>
                     <?php
                     if ($result->num_rows > 0) {
-                        // Output data dari setiap baris
                         while($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row["id"]) . "</td>";

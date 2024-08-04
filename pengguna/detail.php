@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config.php';
 
 // Membuat koneksi
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -56,12 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (in_array('makanan', $pelayanan)) {
             $harga_paket += 500000;
         }
-        $harga_per_orang = $row['harga'] *$jumlah_orang;
+        $harga_per_orang = $row['harga'] * $jumlah_orang;
         // Hitung harga paket perjalanan per orang
         $harga_paket_per_orang = $harga_paket;
 
         // Hitung total harga
-        $total_harga = ($harga_per_orang + $harga_paket_per_orang) * $jumlah_orang;
+        $total_harga = (($harga_per_orang) + ($harga_paket_per_orang * $jumlah_orang *$durasi));
 
         $message = "Harga Paket Per Orang: Rp. " . number_format($harga_paket_per_orang, 0, ',', '.') . "<br>" .
                    "Jumlah Tagihan: Rp. " . number_format($total_harga, 0, ',', '.');
@@ -79,15 +79,15 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Paket Wisata</title>
-    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="../css/detail.css">
 </head>
 <body>
-    <?php include 'nav/header1.php'; ?>
+    <?php include '../nav/header1.php'; ?>
     <div class="container">
         <div class="details">
             <h1><?php echo htmlspecialchars($row['judul']); ?></h1>
             <div class="image">
-                <img src="uploads/<?php echo htmlspecialchars($row['gambar']); ?>" alt="<?php echo htmlspecialchars($row['judul']); ?>" style="width: 100%; height: auto;">
+                <img src="../uploads/<?php echo htmlspecialchars($row['gambar']); ?>" alt="<?php echo htmlspecialchars($row['judul']); ?>" style="width: 100%; height: auto;">
             </div>
             <table>
                 <tr>

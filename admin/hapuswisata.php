@@ -13,7 +13,6 @@ if ($conn->connect_error) {
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
-    // Query untuk mendapatkan nama file gambar dari database
     $sql = "SELECT gambar FROM paket_wisata WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
@@ -32,13 +31,11 @@ if (isset($_GET['id'])) {
             }
         }
 
-        // Query untuk menghapus data dari database
         $sql = "DELETE FROM paket_wisata WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
 
         if ($stmt->execute()) {
-            // Mengalihkan ke halaman daftar paket wisata
             header("Location: paketwisata.php");
             exit();
         } else {

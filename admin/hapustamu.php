@@ -19,7 +19,6 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        // Mengalihkan ke halaman daftar buku tamu setelah data berhasil dihapus
         header("Location: bukutamu.php");
         exit();
     } else {

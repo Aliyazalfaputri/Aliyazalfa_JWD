@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Memverifikasi password
             if (password_verify($password, $hashed_password)) {
                 // Redirect ke halaman pengguna jika login berhasil
-                header("Location: dashboard.php");
+                header("Location: pengguna/dashboard.php");
                 exit();
             } else {
                 // Jika password salah

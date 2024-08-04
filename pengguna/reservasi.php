@@ -1,6 +1,6 @@
 <?php
-include 'config.php';
-include 'nav/header1.php'; 
+include '../config.php';
+include '../nav/header1.php'; 
 
 // Membuka koneksi database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nomer_telp = $_POST['nomer_telp'];
     $waktu_pelaksanaan = $_POST['waktu_pelaksanaan'];
     $jumlah_peserta = $_POST['jumlah_peserta'];
+    $jenis_tour = $_POST['jenis_tour'];
     $pelayanan_paket = implode(', ', $_POST['pelayanan']);
     
     // Menghapus karakter non-numerik dari harga
@@ -23,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jumlah_tagihan = preg_replace('/\D/', '', $_POST['jumlah_tagihan']);
 
     // Menyiapkan query untuk menyimpan data
-    $query = "INSERT INTO reservasi (nama_pemesan, nomor_tel_hp, waktu_pelaksanaan, jumlah_peserta, pelayanan_paket, harga_paket, jumlah_tagihan) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO reservasi (nama_pemesan, nomor_tel_hp, waktu_pelaksanaan, jumlah_peserta, jenis_tour, pelayanan_paket, harga_paket, jumlah_tagihan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Menggunakan prepared statement untuk mencegah SQL injection
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('sssssss', $nama_pemesan, $nomer_telp, $waktu_pelaksanaan, $jumlah_peserta, $pelayanan_paket, $harga_paket, $jumlah_tagihan);
+    $stmt->bind_param('ssssssss', $nama_pemesan, $nomer_telp, $waktu_pelaksanaan, $jumlah_peserta, $jenis_tour, $pelayanan_paket, $harga_paket, $jumlah_tagihan);
 
     // Menjalankan query
     if ($stmt->execute()) {
@@ -56,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Menyatukan pelayanan dalam format string
     $pelayanan_paket = implode(', ', $pelayanan);
+    $jenis_tour = isset($_GET['jenis_tour']) ? htmlspecialchars($_GET['jenis_tour']) : '';
+
     ?>
 
     <!DOCTYPE html>
@@ -64,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Review Pesanan</title>
-        <link rel="stylesheet" href="css/reservasi.css">
+        <link rel="stylesheet" href="../css/reservasi.css">
     </head>
     <body>
         <div class="form-containernew">
@@ -72,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p><strong>Nama:</strong> <?php echo $nama_pemesan; ?></p>
             <p><strong>Jumlah Peserta:</strong> <?php echo $jumlah_peserta; ?></p>
             <p><strong>Waktu Perjalanan:</strong> <?php echo $waktu_pelaksanaan; ?></p>
+            <p><strong>Jenis Tour:</strong> <?php echo $jenis_tour; ?></p>
             <p><strong>Layanan Paket:</strong> <?php echo $pelayanan_paket; ?></p>
             <p><strong>Harga Paket:</strong> <?php echo $harga_paket; ?></p>
             <p><strong>Jumlah Tagihan:</strong> <?php echo $jumlah_tagihan; ?></p>
@@ -82,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="hidden" name="nomer_telp" value="<?php echo htmlspecialchars($nomer_telp); ?>">
                 <input type="hidden" name="waktu_pelaksanaan" value="<?php echo htmlspecialchars($waktu_pelaksanaan); ?>">
                 <input type="hidden" name="jumlah_peserta" value="<?php echo intval($jumlah_peserta); ?>">
+                <input type="hidden" name="jenis_tour" value="<?php echo htmlspecialchars($jenis_tour); ?>">
                 <input type="hidden" name="pelayanan[]" value="<?php echo htmlspecialchars(implode(', ', $pelayanan)); ?>">
                 <input type="hidden" name="harga_paket" value="<?php echo htmlspecialchars($harga_paket); ?>">
                 <input type="hidden" name="jumlah_tagihan" value="<?php echo htmlspecialchars($jumlah_tagihan); ?>">

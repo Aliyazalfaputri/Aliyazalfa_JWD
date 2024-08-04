@@ -28,7 +28,6 @@ if (isset($_GET['id'])) {
     die("ID tidak diberikan.");
 }
 
-// Memproses formulir jika disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $judul = $_POST['judul'];
     $hari = $_POST['hari'];
@@ -37,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tanggal_mulai = $_POST['tanggal_mulai'];
     $tanggal_akhir = $_POST['tanggal_akhir'];
 
-    // Penanganan unggahan file gambar
     if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
         $target_dir = "../uploads/";
         $target_file = $target_dir . basename($_FILES["gambar"]["name"]);
@@ -54,15 +52,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
             } else {
                 echo "Maaf, terjadi kesalahan saat mengunggah file.";
-                $gambar = $row['gambar']; // Gunakan gambar lama jika gagal unggah
+                $gambar = $row['gambar']; 
             }
         } else {
             echo "Maaf, hanya file dengan format JPG, JPEG, & PNG yang diperbolehkan.";
-            $gambar = $row['gambar']; // Gunakan gambar lama jika format tidak sesuai
+            $gambar = $row['gambar']; 
         }
     } else {
-        $gambar = $row['gambar']; // Gunakan gambar lama jika tidak ada file baru yang diunggah
-        // Update database tanpa mengubah gambar
+        $gambar = $row['gambar']; 
         $sql = "UPDATE paket_wisata SET judul = ?, hari = ?, harga = ?, keterangan = ?, tanggal_mulai = ?, tanggal_akhir = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sidsisi", $judul, $hari, $harga, $keterangan, $tanggal_mulai, $tanggal_akhir, $id);

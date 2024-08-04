@@ -130,17 +130,17 @@ header {
 .logout-btn {
     display: flex;
     align-items: center;
-    color: #ff4d4d;
+    color: black;
     text-decoration: none;
     font-size: 14px;
     margin-left: 20px; 
     padding: 5px 10px;
-    background-color: #f8d7da;
+    background-color: white;
     border-radius: 5px;
 }
 
 .logout-btn:hover {
-    background-color: #f5c6cb;
+    background-color: #deabb1;
 }
 
 .insert-btn:hover {
