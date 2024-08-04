@@ -67,6 +67,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <div class="form-containernew">
             <h2>Review Pesanan</h2>
             <p><strong>Nama:</strong> <?php echo $nama_pemesan; ?></p>
+            <p><strong>Nomor Telepon:</strong> <?php echo $nomer_telp; ?></p>
             <p><strong>Jumlah Peserta:</strong> <?php echo $jumlah_peserta; ?></p>
             <p><strong>Waktu Perjalanan:</strong> <?php echo $waktu_pelaksanaan; ?></p>
             <p><strong>Jenis Tour:</strong> <?php echo $jenis_tour; ?></p>
