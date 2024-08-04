@@ -5,12 +5,14 @@
 }
 
 .image {
-    width: 100px; 
+    width: auto; /* Menyesuaikan lebar dengan konten (gambar) */
     border-radius: 8px; 
     overflow: hidden; 
+    max-width: 100%; /* Maksimal lebar gambar tidak melebihi kontainer */
 }
+
 .image img {
-    width: 500px;
+    width: 100%; /* Lebar gambar 100% dari kontainer induknya */
     height: auto;
     object-fit: cover;
     border-radius: 8px;

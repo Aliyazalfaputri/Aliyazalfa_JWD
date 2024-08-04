@@ -1,5 +1,7 @@
 <?php
+session_start();
 include '../config.php';
+
 
 $sql = "SELECT id, judul, hari, harga, gambar FROM paket_wisata";
 $result = $conn->query($sql);

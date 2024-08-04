@@ -82,9 +82,9 @@ $conn->close();
     <div class="container">
         <div class="details">
             <h1><?php echo htmlspecialchars($row['judul']); ?></h1>
-            <div class="image">
-                <img src="../uploads/<?php echo htmlspecialchars($row['gambar']); ?>" alt="<?php echo htmlspecialchars($row['judul']); ?>" style="width: 100%; height: auto;">
-            </div>
+            <div class="image" style="width: 100%; max-width: 800px; overflow: hidden;">
+    <img src="../uploads/<?php echo htmlspecialchars($row['gambar']); ?>" alt="<?php echo htmlspecialchars($row['judul']); ?>" style="width: 100%; height: auto;">
+</div>
             <table>
                 <tr>
                     <th>Keterangan</th>

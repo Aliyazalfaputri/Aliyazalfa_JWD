@@ -1,6 +1,15 @@
 <?php
-// Menghubungkan ke database
+session_start();
 include '../config.php';
+
+
+if (!isset($_SESSION['user_logged_in'])) {
+    header("Location: ../login.php");
+    exit();
+}
+echo '<pre>';
+echo '</pre>';
+
 
 // Mengambil data dari tabel paket_wisata
 $query = "SELECT * FROM paket_wisata";
@@ -8,9 +17,8 @@ $result = mysqli_query($conn, $query);
 mysqli_close($conn);
 
 include '../nav/header1.php'; 
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +50,3 @@ include '../nav/header1.php';
     </div>
 </body>
 </html>
-
-
-
