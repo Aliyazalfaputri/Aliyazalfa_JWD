@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $gambar = basename($_FILES["gambar"]["name"]);
                 $sql = "UPDATE paket_wisata SET judul = ?, hari = ?, harga = ?, keterangan = ?, gambar = ?, tanggal_mulai = ?, tanggal_akhir = ? WHERE id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("sidsisi", $judul, $hari, $harga, $keterangan, $gambar, $tanggal_mulai, $tanggal_akhir, $id);
+                $stmt->bind_param("sisisssi", $judul, $hari, $harga, $keterangan, $gambar, $tanggal_mulai, $tanggal_akhir, $id);
                 
             } else {
                 echo "Maaf, terjadi kesalahan saat mengunggah file.";
